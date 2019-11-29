@@ -60,10 +60,12 @@ def read_file(file_path):
     returns:
         message: content of file in file_path as a string
     """
-    
-    #TODO: Your code goes here
-    with open(file_path) as f:
-        read_data = f.read()
+
+    try:
+        with open(file_path, 'r') as file:
+            read_data = file.read() #raise an exception if lines are not numeric
+    except Exception as exception_object:
+        print("Unexpected exception", exception_object)
     return read_data
 
 
